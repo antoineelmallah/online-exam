@@ -1,9 +1,12 @@
 from .entities.entity import Session, engine, Base
 from .entities.exam import Exam, ExamSchema
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 # create flask application
 app = Flask(__name__)
+
+CORS(app)
 
 # generate database schema if needed
 Base.metadata.create_all(engine)
